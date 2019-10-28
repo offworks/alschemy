@@ -1,0 +1,20 @@
+{
+  "name": "offworks/alschemy",
+  "description": "An active migration tool to help with modern framework's migration component",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Eimihar",
+      "email": "newrehmi@gmail.com"
+    }
+  ],
+  "require": {
+    "doctrine/migrations": "^2.0",
+    "nikic/php-parser": "^4.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alschemy\\": "src"
+    }
+  }
+}
