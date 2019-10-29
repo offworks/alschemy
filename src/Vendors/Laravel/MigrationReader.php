@@ -1,8 +1,7 @@
 <?php
 
-namespace Alschemy\Providers\Laravel;
+namespace Alschemy\Vendors\Laravel;
 
-use Alschemy\Contracts\VersionReader;
 use Alschemy\TypeMap;
 use Alschemy\Schema\Schema;
 use Alschemy\Schema\Table;
@@ -26,7 +25,7 @@ function pp($r) {
     print_r($r);
 }
 
-class MigrationReader implements VersionReader
+class MigrationReader
 {
     /**
      * @var
@@ -121,10 +120,10 @@ class MigrationReader implements VersionReader
             'uuid' => 'UUID',
             'year' => 'YEAR',
             'unique' => function(Table $table, array $args) {
-                $table->addUniqueIndex($args[0], isset($args[1]) ? $args[1] : null);
+                $table->addUniqueIndex([$args[0]], isset($args[1]) ? $args[1] : null);
             },
             'index' => function(Table $table, array $args) {
-                $table->addIndex($args[0], isset($args[1]) ? $args[1] : null);
+                $table->addIndex([$args[0]], isset($args[1]) ? $args[1] : null);
             }
         ];
 
@@ -175,7 +174,7 @@ class MigrationReader implements VersionReader
 
     /**
      * Output the schema of whatever version you had
-     * @return Schema|null
+     * @return Schema
      */
     public function read()
     {
